@@ -1,14 +1,15 @@
 import React from "react";
+
+import Form from "./components/Form/Form";
 import "./App.css";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
+const App = () => (
+  <div className="App">
+    <header className="App-header">
        Car Crash Virtual Sensor
-      </header>
-    </div>
-  );
-}
+      <Form />
+    </header>
+  </div>
+);
 
 export default App;
