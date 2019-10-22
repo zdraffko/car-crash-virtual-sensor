@@ -1,15 +1,19 @@
 import React from "react";
 
-import Form from "./components/Form/Form";
+import CarCrashForm from "./components/CarCrashForm/CarCrashForm";
 import "./App.css";
 
-const App = () => (
-  <div className="App">
-    <header className="App-header">
+const App = () => {
+  const handleCarCrashFormSubmit = () => {
+
+  };
+
+  return (
+    <div className="App">
        Car Crash Virtual Sensor
-      <Form />
-    </header>
-  </div>
-);
+      <CarCrashForm handleSubmit={handleCarCrashFormSubmit} />
+    </div>
+  );
+};
 
 export default App;
