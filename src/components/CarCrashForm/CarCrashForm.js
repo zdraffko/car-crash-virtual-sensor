@@ -1,6 +1,7 @@
 import React from "react";
 
 import useFormValidation from "../../hooks/useFormValidation";
+import validateForm from "../../util/validateForm";
 
 import styles from "./CarCrashForm.module.css";
 
@@ -15,10 +16,17 @@ const initialFormState = {
 };
 
 const CarCrashForm = () => {
-  const { formValues, handleValueChange } = useFormValidation(initialFormState);
+  const {
+    formValues,
+    validationErrors,
+    isSubmitting,
+    handleValueChange,
+    handleBlur,
+    handleFormSubmit
+  } = useFormValidation(initialFormState, validateForm);
 
   return (
-    <form className={styles.Form} onSubmit={(event) => { event.preventDefault(); console.log(formValues); }}>
+    <form className={styles.Form} onSubmit={handleFormSubmit}>
       <label>Колан</label>
       <select name="hasSeatbelt" value={formValues.hasSeatbelt} onChange={handleValueChange}>
         <option value>С колан</option>
@@ -26,11 +34,14 @@ const CarCrashForm = () => {
       </select>
 
       <label>Тегло на шофьора</label>
+      {validationErrors.driverWeight && <p className={styles.errorMessage}>{validationErrors.driverWeight}</p>}
       <input
         name="driverWeight"
+        className={validationErrors.driverWeight && styles.errorInput}
         type="number"
         value={formValues.driverWeight}
         onChange={handleValueChange}
+        onBlur={handleBlur}
         placeholder="кг"
       />
 
@@ -44,11 +55,14 @@ const CarCrashForm = () => {
       </select>
 
       <label>Скорост на колата</label>
+      {validationErrors.carSpeed && <p className={styles.errorMessage}>{validationErrors.carSpeed}</p>}
       <input
         name="carSpeed"
+        className={validationErrors.driverWeight && styles.errorInput}
         type="number"
         value={formValues.carSpeed}
         onChange={handleValueChange}
+        onBlur={handleBlur}
         placeholder="км/ч"
       />
 
@@ -69,15 +83,18 @@ const CarCrashForm = () => {
       </select>
 
       <label>Разстояние до мястото на евентуален сблъсък</label>
+      {validationErrors.distanceToObstacle && <p className={styles.errorMessage}>{validationErrors.distanceToObstacle}</p>}
       <input
         name="distanceToObstacle"
+        className={validationErrors.driverWeight && styles.errorInput}
         type="number"
         value={formValues.distanceToObstacle}
         onChange={handleValueChange}
+        onBlur={handleBlur}
         placeholder="в метри"
       />
 
-      <button type="submit">Изчисли</button>
+      <button type="submit" disabled={isSubmitting}>Изчисли</button>
     </form>
   );
 };

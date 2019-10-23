@@ -3,3 +3,11 @@
   flex-flow: column;
   align-items: flex-start;
 }
+
+.errorInput {
+  border: 3px solid red;
+}
+
+.errorMessage {
+  color: red;
+}
