@@ -1,34 +1,41 @@
-import React, { useState } from "react";
+import React from "react";
+
+import useFormValidation from "../../hooks/useFormValidation";
 
 import styles from "./CarCrashForm.module.css";
 
-const CarCrashForm = ({ handleSubmit }) => {
-  const [hasSeatbelt, setHasSeatbelt] = useState(true);
-  const [driverWeight, setDriverWeight] = useState("");
-  const [reactionTime, setReactionTime] = useState(1);
-  const [carSpeed, setCarSpeed] = useState("");
-  const [roadConditions, setRoadConditions] = useState(0.97);
-  const [roadGradient, setRoadGradient] = useState(10);
-  const [distanceToObstacle, setDistanceToObstacle] = useState("");
+const initialFormState = {
+  hasSeatbelt: true,
+  driverWeight: "",
+  reactionTime: 1,
+  carSpeed: "",
+  roadConditions: 0.97,
+  roadGradient: 10,
+  distanceToObstacle: "",
+};
+
+const CarCrashForm = () => {
+  const { formValues, handleValueChange } = useFormValidation(initialFormState);
 
   return (
-    <form className={styles.Form} onSubmit={handleSubmit}>
+    <form className={styles.Form} onSubmit={(event) => { event.preventDefault(); console.log(formValues); }}>
       <label>Колан</label>
-      <select name="seatbelt-options" value={hasSeatbelt} onChange={(event) => setHasSeatbelt(event.target.value)}>
+      <select name="hasSeatbelt" value={formValues.hasSeatbelt} onChange={handleValueChange}>
         <option value>С колан</option>
         <option value={false}>Без колан</option>
       </select>
 
       <label>Тегло на шофьора</label>
       <input
+        name="driverWeight"
         type="number"
-        value={driverWeight}
-        onChange={(event) => setDriverWeight(event.target.value)}
+        value={formValues.driverWeight}
+        onChange={handleValueChange}
         placeholder="кг"
       />
 
       <label>Време за реакция</label>
-      <select name="reaction-time-options" value={reactionTime} onChange={(event) => setReactionTime(event.target.value)}>
+      <select name="reactionTime" value={formValues.reactionTime} onChange={handleValueChange}>
         <option value="">И</option>
         <option value={1}>1 секунда - много внимателен шофьор</option>
         <option value={1.5}>1.5 секунди - обикновен шофьор</option>
@@ -38,14 +45,15 @@ const CarCrashForm = ({ handleSubmit }) => {
 
       <label>Скорост на колата</label>
       <input
+        name="carSpeed"
         type="number"
-        value={carSpeed}
-        onChange={(event) => setCarSpeed(event.target.value)}
+        value={formValues.carSpeed}
+        onChange={handleValueChange}
         placeholder="км/ч"
       />
 
       <label>Пътна обстановка</label>
-      <select name="road-conditions" value={roadConditions} onChange={(event) => setRoadConditions(event.target.value)}>
+      <select name="roadConditions" value={formValues.roadConditions} onChange={handleValueChange}>
         <option value={0.97}>сух асфалт</option>
         <option value={0.7}>мокър асфалт</option>
         <option value={0.2}>заснежен асфалт</option>
@@ -53,7 +61,7 @@ const CarCrashForm = ({ handleSubmit }) => {
       </select>
 
       <label>Наклон на пътя</label>
-      <select name="road-gradient" value={roadGradient} onChange={(event) => setRoadGradient(event.target.value)}>
+      <select name="roadGradient" value={formValues.roadGradient} onChange={handleValueChange}>
         <option value={10}>лек наклон нагоре</option>
         <option value={30}>стръмен наклон нагоре</option>
         <option value={-10}>лек наклон надолу</option>
@@ -62,9 +70,10 @@ const CarCrashForm = ({ handleSubmit }) => {
 
       <label>Разстояние до мястото на евентуален сблъсък</label>
       <input
+        name="distanceToObstacle"
         type="number"
-        value={distanceToObstacle}
-        onChange={(event) => setDistanceToObstacle(event.target.value)}
+        value={formValues.distanceToObstacle}
+        onChange={handleValueChange}
         placeholder="в метри"
       />
 
@@ -72,4 +81,5 @@ const CarCrashForm = ({ handleSubmit }) => {
     </form>
   );
 };
+
 export default CarCrashForm;
