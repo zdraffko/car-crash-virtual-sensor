@@ -9,11 +9,11 @@ body {
   justify-content: center;
   align-items: center;
   height: 100vh;
+  background: linear-gradient(110deg, #67dfd4 60%, #ffff 60%);
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #282c34;
 }
 
 code {

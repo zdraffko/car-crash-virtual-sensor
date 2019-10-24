@@ -12,10 +12,12 @@
   color: black;
 }
 
-.inputSection {
+.inputSection,
+.selectSection {
   width: 100%;
   height: 10%;
   position: relative;
+  margin-bottom: 30px;
 }
 
 .inputSection input {
@@ -26,6 +28,13 @@
   border: none;
   font-size: 18px;
   outline: none;
+  padding-left: 5px;
+}
+
+.inputSection input[type="number"]::-webkit-inner-spin-button,
+.inputSection input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
 
 .inputLabel {
@@ -49,25 +58,29 @@
   width: 100%;
   border-bottom: 2px solid #67dfd4;
   transform: translateX(-100%);
-  transition: transform 300ms ease;
+  transition: transform 400ms ease;
 }
 
 .labelContent {
   position: absolute;
   bottom: 5px;
-  left: 0;
+  left: 5px;
   transition: all 300ms ease;
 }
 
 .inputSection input:focus + .inputLabel .labelContent,
-.inputSection input:valid + .inputLabel .labelContent {
+.inputSection input:valid + .inputLabel .labelContent,
+.selectSection select:focus + .inputLabel .labelContent,
+.hasValue + .inputLabel .labelContent {
   transform: translateY(-150%);
   font-size: 16px;
   color: #67dfd4;
 }
 
 .inputSection input:focus + .inputLabel::after,
-.inputSection input:valid + .inputLabel::after {
+.inputSection input:valid + .inputLabel::after,
+.selectSection select:focus + .inputLabel::after,
+.hasValue + .inputLabel::after {
   transform: translateX(0%);
 }
 
@@ -77,4 +90,29 @@
 
 .errorMessage {
   color: red;
+}
+
+.selectSection {
+  width: 100%;
+  height: 10%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.selectSection select {
+  position: absolute;
+  bottom: 5px;
+  width: 100%;
+  font-size: 18px;
+  outline: none;
+  background-color: transparent;
+  border: none;
+}
+
+.selectSection select:hover {
+  cursor: pointer;
+}
+
+.selectSection select:active {
+  background-color: #ffff;
 }

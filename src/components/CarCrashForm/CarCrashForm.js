@@ -6,12 +6,12 @@ import validateForm from "../../util/validateForm";
 import styles from "./CarCrashForm.module.css";
 
 const initialFormState = {
-  hasSeatbelt: true,
+  hasSeatbelt: "",
   driverWeight: "",
-  reactionTime: 1,
+  reactionTime: "",
   carSpeed: "",
-  roadConditions: 0.97,
-  roadGradient: 10,
+  roadConditions: "",
+  roadGradient: "",
   distanceToObstacle: "",
 };
 
@@ -27,11 +27,19 @@ const CarCrashForm = () => {
 
   return (
     <form className={styles.Form} onSubmit={handleFormSubmit}>
-      <label>Колан</label>
-      <select name="hasSeatbelt" value={formValues.hasSeatbelt} onChange={handleValueChange}>
-        <option value>С колан</option>
-        <option value={false}>Без колан</option>
-      </select>
+      <div className={styles.selectSection}>
+        <select
+          name="hasSeatbelt"
+          value={formValues.hasSeatbelt}
+          onChange={handleValueChange}
+          className={formValues.hasSeatbelt && styles.hasValue}
+        >
+          <option value="" disabled selected>{}</option>
+          <option value>С колан</option>
+          <option value={false}>Без колан</option>
+        </select>
+        <label className={styles.inputLabel}><span className={styles.labelContent}>Имаш ли колан ?</span></label>
+      </div>
 
       <div className={styles.inputSection}>
 
@@ -45,62 +53,85 @@ const CarCrashForm = () => {
           onBlur={handleBlur}
           required
         />
-        <label className={styles.inputLabel}><span className={styles.labelContent}>Тегло на шофьора</span></label>
+        <label className={styles.inputLabel}><span className={styles.labelContent}>Какво е теглото ти ?</span></label>
       </div>
 
-      <label>Време за реакция</label>
-      <select name="reactionTime" value={formValues.reactionTime} onChange={handleValueChange}>
-        <option value="">И</option>
-        <option value={1}>1 секунда - много внимателен шофьор</option>
-        <option value={1.5}>1.5 секунди - обикновен шофьор</option>
-        <option value={2}>2 секунди - изморен или възрастен шофьор</option>
-        <option value={2.5}>2.5 секунди - нетрезвен шофьор</option>
-      </select>
-
+      <div className={styles.selectSection}>
+        <select
+          name="reactionTime"
+          value={formValues.reactionTime}
+          onChange={handleValueChange}
+          className={formValues.reactionTime && styles.hasValue}
+        >
+          <option value="" disabled selected>{}</option>
+          <option value={1}>много внимателен</option>
+          <option value={1.5}>обикновен</option>
+          <option value={2}>изморен / възрастен</option>
+          <option value={2.5}>нетрезвен</option>
+        </select>
+        <label className={styles.inputLabel}><span className={styles.labelContent}>Какъв вид шофьор си ?</span></label>
+      </div>
       <div className={styles.inputSection}>
 
         {/* {validationErrors.carSpeed && <p className={styles.errorMessage}>{validationErrors.carSpeed}</p>} */}
         <input
           name="carSpeed"
-          className={validationErrors.driverWeight && styles.errorInput}
+          className={validationErrors.carSpeed && styles.errorInput}
           type="number"
           value={formValues.carSpeed}
           onChange={handleValueChange}
           onBlur={handleBlur}
           required
         />
-        <label className={styles.inputLabel}><span className={styles.labelContent}>Скорост на колата</span></label>
+        <label className={styles.inputLabel}><span className={styles.labelContent}>Каква е скоростта на колата ?</span></label>
       </div>
 
-      <label>Пътна обстановка</label>
-      <select name="roadConditions" value={formValues.roadConditions} onChange={handleValueChange}>
-        <option value={0.97}>сух асфалт</option>
-        <option value={0.7}>мокър асфалт</option>
-        <option value={0.2}>заснежен асфалт</option>
-        <option value={0.1}>заледен асфалт</option>
-      </select>
-
-      <label>Наклон на пътя</label>
-      <select name="roadGradient" value={formValues.roadGradient} onChange={handleValueChange}>
-        <option value={10}>лек наклон нагоре</option>
-        <option value={30}>стръмен наклон нагоре</option>
-        <option value={-10}>лек наклон надолу</option>
-        <option value={-30}>стръмен наклон надолу</option>
-      </select>
+      <div className={styles.selectSection}>
+        <select
+          name="roadConditions"
+          value={formValues.roadConditions}
+          onChange={handleValueChange}
+          className={formValues.roadConditions && styles.hasValue}
+        >
+          <option value="" disabled selected>{}</option>
+          <option value={0.97}>сух асфалт</option>
+          <option value={0.7}>мокър асфалт</option>
+          <option value={0.2}>заснежен асфалт</option>
+          <option value={0.1}>заледен асфалт</option>
+        </select>
+        <label className={styles.inputLabel}><span className={styles.labelContent}>Каква е пътната обстановка ?</span></label>
+      </div>
 
       <div className={styles.inputSection}>
 
         {/* {validationErrors.distanceToObstacle && <p className={styles.errorMessage}>{validationErrors.distanceToObstacle}</p>} */}
         <input
           name="distanceToObstacle"
-          className={validationErrors.driverWeight && styles.errorInput}
+          className={validationErrors.distanceToObstacle && styles.errorInput}
           type="number"
           value={formValues.distanceToObstacle}
           onChange={handleValueChange}
           onBlur={handleBlur}
           required
         />
-        <label className={styles.inputLabel}><span className={styles.labelContent}>Разстояние до сблъсък</span></label>
+        <label className={styles.inputLabel}><span className={styles.labelContent}>Какво е разстояние до мястото на сблъсък ?</span></label>
+      </div>
+
+      <div className={styles.selectSection}>
+        <select
+          name="roadGradient"
+          value={formValues.roadGradient}
+          onChange={handleValueChange}
+          className={formValues.roadGradient && styles.hasValue}
+        >
+          <option value="" disabled selected>{}</option>
+          <option value={0}>няма наклон</option>
+          <option value={10}>лек наклон нагоре</option>
+          <option value={30}>стръмен наклон нагоре</option>
+          <option value={-10}>лек наклон надолу</option>
+          <option value={-30}>стръмен наклон надолу</option>
+        </select>
+        <label className={styles.inputLabel}><span className={styles.labelContent}>Какъв е наклона на пътя ?</span></label>
       </div>
       <button type="submit" disabled={isSubmitting}>Изчисли</button>
     </form>
