@@ -1,7 +1,74 @@
 .Form {
   display: flex;
   flex-flow: column;
+  justify-content: space-between;
   align-items: flex-start;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.Form label {
+  color: black;
+}
+
+.inputSection {
+  width: 100%;
+  height: 10%;
+  position: relative;
+}
+
+.inputSection input {
+  width: 100%;
+  height: 100%;
+  color: black;
+  padding-top: 20px;
+  border: none;
+  font-size: 18px;
+  outline: none;
+}
+
+.inputLabel {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  border-bottom: 1px solid black;
+  font-size: 20px;
+  color: black;
+}
+
+.inputLabel::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -1;
+  height: 100%;
+  width: 100%;
+  border-bottom: 2px solid #67dfd4;
+  transform: translateX(-100%);
+  transition: transform 300ms ease;
+}
+
+.labelContent {
+  position: absolute;
+  bottom: 5px;
+  left: 0;
+  transition: all 300ms ease;
+}
+
+.inputSection input:focus + .inputLabel .labelContent,
+.inputSection input:valid + .inputLabel .labelContent {
+  transform: translateY(-150%);
+  font-size: 16px;
+  color: #67dfd4;
+}
+
+.inputSection input:focus + .inputLabel::after,
+.inputSection input:valid + .inputLabel::after {
+  transform: translateX(0%);
 }
 
 .errorInput {

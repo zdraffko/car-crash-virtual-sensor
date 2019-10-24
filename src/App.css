@@ -4,5 +4,15 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   font-size: calc(10px + 2vmin);
+  height: 70vh;
+  width: 50vw;
+  padding: 40px;
+  background-color: white;
+  border-radius: 50px;
+}
+
+.App h1 {
+  color: black;
 }

@@ -6,7 +6,7 @@ import "./App.css";
 
 const App = () => (
   <div className="App">
-       Car Crash Virtual Sensor
+    <h1>Car Crash Virtual Sensor</h1>
     <CarCrashForm />
   </div>
 );

@@ -33,17 +33,20 @@ const CarCrashForm = () => {
         <option value={false}>Без колан</option>
       </select>
 
-      <label>Тегло на шофьора</label>
-      {validationErrors.driverWeight && <p className={styles.errorMessage}>{validationErrors.driverWeight}</p>}
-      <input
-        name="driverWeight"
-        className={validationErrors.driverWeight && styles.errorInput}
-        type="number"
-        value={formValues.driverWeight}
-        onChange={handleValueChange}
-        onBlur={handleBlur}
-        placeholder="кг"
-      />
+      <div className={styles.inputSection}>
+
+        {/* {validationErrors.driverWeight && <p className={styles.errorMessage}>{validationErrors.driverWeight}</p>} */}
+        <input
+          name="driverWeight"
+          className={validationErrors.driverWeight && styles.errorInput}
+          type="number"
+          value={formValues.driverWeight}
+          onChange={handleValueChange}
+          onBlur={handleBlur}
+          required
+        />
+        <label className={styles.inputLabel}><span className={styles.labelContent}>Тегло на шофьора</span></label>
+      </div>
 
       <label>Време за реакция</label>
       <select name="reactionTime" value={formValues.reactionTime} onChange={handleValueChange}>
@@ -54,17 +57,20 @@ const CarCrashForm = () => {
         <option value={2.5}>2.5 секунди - нетрезвен шофьор</option>
       </select>
 
-      <label>Скорост на колата</label>
-      {validationErrors.carSpeed && <p className={styles.errorMessage}>{validationErrors.carSpeed}</p>}
-      <input
-        name="carSpeed"
-        className={validationErrors.driverWeight && styles.errorInput}
-        type="number"
-        value={formValues.carSpeed}
-        onChange={handleValueChange}
-        onBlur={handleBlur}
-        placeholder="км/ч"
-      />
+      <div className={styles.inputSection}>
+
+        {/* {validationErrors.carSpeed && <p className={styles.errorMessage}>{validationErrors.carSpeed}</p>} */}
+        <input
+          name="carSpeed"
+          className={validationErrors.driverWeight && styles.errorInput}
+          type="number"
+          value={formValues.carSpeed}
+          onChange={handleValueChange}
+          onBlur={handleBlur}
+          required
+        />
+        <label className={styles.inputLabel}><span className={styles.labelContent}>Скорост на колата</span></label>
+      </div>
 
       <label>Пътна обстановка</label>
       <select name="roadConditions" value={formValues.roadConditions} onChange={handleValueChange}>
@@ -82,18 +88,20 @@ const CarCrashForm = () => {
         <option value={-30}>стръмен наклон надолу</option>
       </select>
 
-      <label>Разстояние до мястото на евентуален сблъсък</label>
-      {validationErrors.distanceToObstacle && <p className={styles.errorMessage}>{validationErrors.distanceToObstacle}</p>}
-      <input
-        name="distanceToObstacle"
-        className={validationErrors.driverWeight && styles.errorInput}
-        type="number"
-        value={formValues.distanceToObstacle}
-        onChange={handleValueChange}
-        onBlur={handleBlur}
-        placeholder="в метри"
-      />
+      <div className={styles.inputSection}>
 
+        {/* {validationErrors.distanceToObstacle && <p className={styles.errorMessage}>{validationErrors.distanceToObstacle}</p>} */}
+        <input
+          name="distanceToObstacle"
+          className={validationErrors.driverWeight && styles.errorInput}
+          type="number"
+          value={formValues.distanceToObstacle}
+          onChange={handleValueChange}
+          onBlur={handleBlur}
+          required
+        />
+        <label className={styles.inputLabel}><span className={styles.labelContent}>Разстояние до сблъсък</span></label>
+      </div>
       <button type="submit" disabled={isSubmitting}>Изчисли</button>
     </form>
   );
