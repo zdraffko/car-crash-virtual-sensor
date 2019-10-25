@@ -21,8 +21,16 @@ const useFormValidation = (initialFormState, validateForm) => {
     [event.target.name]: event.target.value
   });
 
-  const handleBlur = () => {
-    setValidationErrors(validateForm(formValues));
+  const handleBlur = (event) => {
+    const errors = validateForm(formValues);
+    let errorMessage = "";
+    for (const error of Object.keys(errors)) {
+      if (event.target.name === error) {
+        errorMessage = errors[error];
+      }
+    }
+
+    setValidationErrors({ ...validationErrors, [event.target.name]: errorMessage });
   };
 
   const handleFormSubmit = (event) => {

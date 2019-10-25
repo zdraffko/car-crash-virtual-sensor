@@ -84,12 +84,14 @@
   transform: translateX(0%);
 }
 
-.errorInput {
-  border: 3px solid red;
+.errorContent {
+  transform: translateY(-150%);
+  font-size: 16px;
+  color: #ed706f !important;
 }
 
-.errorMessage {
-  color: red;
+.errorLabel {
+  border-bottom: 2px solid #ed706f;
 }
 
 .selectSection {
