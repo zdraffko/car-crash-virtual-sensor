@@ -16,7 +16,7 @@ const initialFormState = {
   distanceToObstacle: "",
 };
 
-const CarCrashForm = () => {
+const CarCrashForm = ({ history }) => {
   const {
     formValues,
     validationErrors,
@@ -27,7 +27,7 @@ const CarCrashForm = () => {
   } = useFormValidation(initialFormState, validateForm);
 
   return (
-    <form className={styles.Form} onSubmit={handleFormSubmit}>
+    <form className={styles.Form} onSubmit={() => history.push("/car-crash-results")}>
       <div className={styles.selectSection}>
         <select
           name="hasSeatbelt"
