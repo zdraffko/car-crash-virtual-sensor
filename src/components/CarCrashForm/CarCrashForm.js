@@ -1,8 +1,9 @@
 import React from "react";
 
+import Button from "../UI/Button/Button";
+
 import useFormValidation from "../../hooks/useFormValidation";
 import validateForm from "../../util/validateForm";
-
 import styles from "./CarCrashForm.module.css";
 
 const initialFormState = {
@@ -32,8 +33,8 @@ const CarCrashForm = () => {
           name="hasSeatbelt"
           value={formValues.hasSeatbelt}
           onChange={handleValueChange}
-          className={formValues.hasSeatbelt && styles.hasValue}
           onBlur={handleBlur}
+          required
         >
           <option value="" disabled selected>{}</option>
           <option value>С колан</option>
@@ -69,8 +70,8 @@ const CarCrashForm = () => {
           name="reactionTime"
           value={formValues.reactionTime}
           onChange={handleValueChange}
-          className={formValues.reactionTime && styles.hasValue}
           onBlur={handleBlur}
+          required
         >
           <option value="" disabled selected>{}</option>
           <option value={1}>много внимателен</option>
@@ -107,8 +108,8 @@ const CarCrashForm = () => {
           name="roadConditions"
           value={formValues.roadConditions}
           onChange={handleValueChange}
-          className={formValues.roadConditions && styles.hasValue}
           onBlur={handleBlur}
+          required
         >
           <option value="" disabled selected>{}</option>
           <option value={0.97}>сух асфалт</option>
@@ -155,8 +156,8 @@ const CarCrashForm = () => {
           name="roadGradient"
           value={formValues.roadGradient}
           onChange={handleValueChange}
-          className={formValues.roadGradient && styles.hasValue}
           onBlur={handleBlur}
+          required
         >
           <option value="" disabled selected>{}</option>
           <option value={0}>няма наклон</option>
@@ -171,7 +172,7 @@ const CarCrashForm = () => {
           </span>
         </label>
       </div>
-      <button type="submit" disabled={isSubmitting}>Изчисли</button>
+      <Button isSubmitting={isSubmitting}>Изчисли</Button>
     </form>
   );
 };

@@ -71,7 +71,7 @@
 .inputSection input:focus + .inputLabel .labelContent,
 .inputSection input:valid + .inputLabel .labelContent,
 .selectSection select:focus + .inputLabel .labelContent,
-.hasValue + .inputLabel .labelContent {
+.selectSection select:valid + .inputLabel .labelContent {
   transform: translateY(-150%);
   font-size: 16px;
   color: #67dfd4;
@@ -80,7 +80,7 @@
 .inputSection input:focus + .inputLabel::after,
 .inputSection input:valid + .inputLabel::after,
 .selectSection select:focus + .inputLabel::after,
-.hasValue + .inputLabel::after {
+.selectSection select:valid + .inputLabel::after {
   transform: translateX(0%);
 }
 
@@ -113,8 +113,4 @@
 
 .selectSection select:hover {
   cursor: pointer;
-}
-
-.selectSection select:active {
-  background-color: #ffff;
 }
