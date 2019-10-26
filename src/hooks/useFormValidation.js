@@ -8,7 +8,6 @@ const useFormValidation = (initialFormState, validateForm) => {
   useEffect(() => {
     if (isSubmitting) {
       if (Object.keys(validationErrors).length === 0) {
-        console.log(formValues);
         setIsSubmitting(false);
       } else {
         setIsSubmitting(false);
@@ -33,10 +32,11 @@ const useFormValidation = (initialFormState, validateForm) => {
     setValidationErrors({ ...validationErrors, [event.target.name]: errorMessage });
   };
 
-  const handleFormSubmit = (event) => {
+  const handleFormSubmit = (event, history) => {
     event.preventDefault();
     setIsSubmitting(true);
     setValidationErrors(validateForm(formValues));
+    history.push("/car-crash-results");
   };
 
   return { formValues, validationErrors, isSubmitting, handleValueChange, handleBlur, handleFormSubmit };

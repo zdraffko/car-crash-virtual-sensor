@@ -2,9 +2,9 @@ import React from "react";
 
 import styles from "./Button.module.css";
 
-const Button = ({ isSubmitting, children }) => (
+const Button = ({ buttonType, isSubmitting, children }) => (
   <button
-    type="submit"
+    type={buttonType}
     className={styles.Button}
     disabled={isSubmitting}
   >{children}
