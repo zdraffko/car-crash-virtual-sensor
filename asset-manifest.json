@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/car-crash-virtual-sensor/static/css/main.17bf0c29.chunk.css",
-    "main.js": "/car-crash-virtual-sensor/static/js/main.bbc5bca9.chunk.js",
-    "main.js.map": "/car-crash-virtual-sensor/static/js/main.bbc5bca9.chunk.js.map",
+    "main.js": "/car-crash-virtual-sensor/static/js/main.37b8520d.chunk.js",
+    "main.js.map": "/car-crash-virtual-sensor/static/js/main.37b8520d.chunk.js.map",
     "runtime-main.js": "/car-crash-virtual-sensor/static/js/runtime-main.74695420.js",
     "runtime-main.js.map": "/car-crash-virtual-sensor/static/js/runtime-main.74695420.js.map",
     "static/js/2.9f9f87f1.chunk.js": "/car-crash-virtual-sensor/static/js/2.9f9f87f1.chunk.js",
     "static/js/2.9f9f87f1.chunk.js.map": "/car-crash-virtual-sensor/static/js/2.9f9f87f1.chunk.js.map",
     "index.html": "/car-crash-virtual-sensor/index.html",
-    "precache-manifest.79e617b668e3cd4a0382461467d4b43b.js": "/car-crash-virtual-sensor/precache-manifest.79e617b668e3cd4a0382461467d4b43b.js",
+    "precache-manifest.c73c8e91a1c5b527812c4ea4c025c135.js": "/car-crash-virtual-sensor/precache-manifest.c73c8e91a1c5b527812c4ea4c025c135.js",
     "service-worker.js": "/car-crash-virtual-sensor/service-worker.js",
     "static/css/main.17bf0c29.chunk.css.map": "/car-crash-virtual-sensor/static/css/main.17bf0c29.chunk.css.map"
   },
@@ -16,6 +16,6 @@
     "static/js/runtime-main.74695420.js",
     "static/js/2.9f9f87f1.chunk.js",
     "static/css/main.17bf0c29.chunk.css",
-    "static/js/main.bbc5bca9.chunk.js"
+    "static/js/main.37b8520d.chunk.js"
   ]
 }

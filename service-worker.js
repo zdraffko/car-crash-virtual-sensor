@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/car-crash-virtual-sensor/precache-manifest.79e617b668e3cd4a0382461467d4b43b.js"
+  "/car-crash-virtual-sensor/precache-manifest.c73c8e91a1c5b527812c4ea4c025c135.js"
 );
 
 self.addEventListener('message', (event) => {
