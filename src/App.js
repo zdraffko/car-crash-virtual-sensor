@@ -24,12 +24,15 @@ const App = () => {
   return (
     <div className="App">
       <Switch>
-        <Route path="/car-crash-form" render={(routProps) => <CarCrashForm {...formValidationObject} {...routProps} />} />
+        <Route
+          path="/car-crash-virtual-sensor"
+          render={(routProps) => <CarCrashForm {...formValidationObject} {...routProps} />}
+        />
         <Route
           path="/car-crash-results"
           render={(routProps) => <CarCrashResults {...formValidationObject.formValues} {...routProps} />}
         />
-        <Redirect exact path="/" to="/car-crash-form" />
+        <Redirect exact path="/" to="/car-crash-virtual-sensor" />
         <Route render={() => <h1>404</h1>} />
       </Switch>
     </div>
