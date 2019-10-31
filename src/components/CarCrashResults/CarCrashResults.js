@@ -2,8 +2,9 @@ import React, { useEffect } from "react";
 
 import calculateStoppingDistance from "../../util/CalculateResults/calculateStoppingDistance";
 import calculateCarCrashSpeed from "../../util/CalculateResults/calculateCarCrashSpeed";
+import Button from "../UI/Button/Button";
 
-const CarCrashResults = ({ carSpeed, reactionTime, roadGradient, roadConditions, distanceToObstacle }) => {
+const CarCrashResults = ({ carSpeed, reactionTime, roadGradient, roadConditions, distanceToObstacle, history }) => {
   useEffect(() => {
     const stoppingDistance = calculateStoppingDistance(
       Number(carSpeed),
@@ -18,7 +19,14 @@ const CarCrashResults = ({ carSpeed, reactionTime, roadGradient, roadConditions,
     }
   }, [carSpeed, distanceToObstacle, reactionTime, roadConditions, roadGradient]);
   return (
-    <h1>Results</h1>
+    <>
+      <h1>Results</h1>
+      <Button
+        buttonType="button"
+        onClick={() => history.push("/car-crash-form")}
+      >Ново изчисление
+      </Button>
+    </>
   );
 };
 
