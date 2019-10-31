@@ -1,0 +1,14 @@
+.Results {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.Results h3 {
+  margin-bottom: 50px;
+}
+
+.Results p {
+  margin: 10px;
+}

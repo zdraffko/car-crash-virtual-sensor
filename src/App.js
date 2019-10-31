@@ -23,7 +23,6 @@ const App = () => {
 
   return (
     <div className="App">
-      <h1>Car Crash Virtual Sensor</h1>
       <Switch>
         <Route path="/car-crash-form" render={(routProps) => <CarCrashForm {...formValidationObject} {...routProps} />} />
         <Route
