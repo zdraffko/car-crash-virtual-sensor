@@ -50,7 +50,7 @@ const CarCrashResults = ({ carSpeed, reactionTime, roadGradient, roadConditions,
       </div>
       <Button
         buttonType="button"
-        onClick={() => history.push("/car-crash-form")}
+        onClick={() => history.push("/car-crash-virtual-sensor")}
       >Ново изчисление
       </Button>
     </>
