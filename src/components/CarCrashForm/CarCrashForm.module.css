@@ -1,4 +1,5 @@
 .Form {
+  padding-top: calc(5px + 2vmin);
   display: flex;
   flex-flow: column;
   justify-content: space-between;
@@ -17,16 +18,16 @@
   width: 100%;
   height: 10%;
   position: relative;
-  margin-bottom: 30px;
+  margin-bottom: calc(20px + 2vmin);
 }
 
 .inputSection input {
   width: 100%;
   height: 100%;
   color: black;
-  padding-top: 20px;
+
   border: none;
-  font-size: 18px;
+  font-size: calc(5px + 2vmin);
   outline: none;
   padding-left: 5px;
 }
@@ -39,13 +40,13 @@
 
 .inputLabel {
   position: absolute;
-  bottom: 0;
+
   left: 0;
   width: 100%;
   height: 100%;
   pointer-events: none;
   border-bottom: 1px solid black;
-  font-size: 20px;
+  font-size: calc(5px + 2vmin);
   color: black;
 }
 
@@ -63,7 +64,7 @@
 
 .labelContent {
   position: absolute;
-  bottom: 5px;
+
   left: 5px;
   transition: all 300ms ease;
 }
@@ -72,8 +73,8 @@
 .inputSection input:valid + .inputLabel .labelContent,
 .selectSection select:focus + .inputLabel .labelContent,
 .selectSection select:valid + .inputLabel .labelContent {
-  transform: translateY(-150%);
-  font-size: 16px;
+  transform: translateY(calc(-5px - 2vmin));
+  font-size: calc(2px + 2vmin);
   color: #67dfd4;
 }
 
@@ -85,8 +86,8 @@
 }
 
 .errorContent {
-  transform: translateY(-150%);
-  font-size: 16px;
+  transform: translateY(calc(-5px - 2vmin));
+  font-size: calc(2px + 2vmin);
   color: #ed706f !important;
 }
 
@@ -105,7 +106,7 @@
   position: absolute;
   bottom: 5px;
   width: 100%;
-  font-size: 18px;
+  font-size: calc(5px + 2vmin);
   outline: none;
   background-color: transparent;
   border: none;

@@ -30,7 +30,7 @@ const CarCrashForm = ({
         </select>
         <label className={validationErrors.hasSeatbelt ? `${styles.inputLabel} ${styles.errorLabel}` : styles.inputLabel}>
           <span className={validationErrors.hasSeatbelt ? `${styles.labelContent} ${styles.errorContent}` : styles.labelContent}>
-            {validationErrors.hasSeatbelt ? validationErrors.hasSeatbelt : "Имаш ли колан ?"}
+            {validationErrors.hasSeatbelt ? validationErrors.hasSeatbelt : "Имаш ли колан?"}
           </span>
         </label>
       </div>
@@ -48,7 +48,7 @@ const CarCrashForm = ({
         />
         <label className={validationErrors.driverWeight ? `${styles.inputLabel} ${styles.errorLabel}` : styles.inputLabel}>
           <span className={validationErrors.driverWeight ? `${styles.labelContent} ${styles.errorContent}` : styles.labelContent}>
-            {validationErrors.driverWeight ? validationErrors.driverWeight : "Какво е теглото ти ?"}
+            {validationErrors.driverWeight ? validationErrors.driverWeight : "Какво е теглото ти?"}
           </span>
         </label>
       </div>
@@ -69,7 +69,7 @@ const CarCrashForm = ({
         </select>
         <label className={validationErrors.reactionTime ? `${styles.inputLabel} ${styles.errorLabel}` : styles.inputLabel}>
           <span className={validationErrors.reactionTime ? `${styles.labelContent} ${styles.errorContent}` : styles.labelContent}>
-            {validationErrors.reactionTime ? validationErrors.reactionTime : "Какъв вид шофьор си ?"}
+            {validationErrors.reactionTime ? validationErrors.reactionTime : "Какъв вид шофьор си?"}
           </span>
         </label>
       </div>
@@ -86,7 +86,7 @@ const CarCrashForm = ({
         />
         <label className={validationErrors.carSpeed ? `${styles.inputLabel} ${styles.errorLabel}` : styles.inputLabel}>
           <span className={validationErrors.carSpeed ? `${styles.labelContent} ${styles.errorContent}` : styles.labelContent}>
-            {validationErrors.carSpeed ? validationErrors.carSpeed : "Каква е скоростта на колата ?"}
+            {validationErrors.carSpeed ? validationErrors.carSpeed : "Каква е скоростта на колата?"}
           </span>
         </label>
       </div>
@@ -109,7 +109,7 @@ const CarCrashForm = ({
           <span className={validationErrors.roadConditions
             ? `${styles.labelContent} ${styles.errorContent}` : styles.labelContent}
           >
-            {validationErrors.roadConditions ? validationErrors.roadConditions : "Каква е пътната обстановка ?"}
+            {validationErrors.roadConditions ? validationErrors.roadConditions : "Каква е пътната обстановка?"}
           </span>
         </label>
       </div>
@@ -133,7 +133,7 @@ const CarCrashForm = ({
           >
             {
               validationErrors.distanceToObstacle
-                ? validationErrors.distanceToObstacle : "Какво е разстояние до мястото на сблъсък ?"
+                ? validationErrors.distanceToObstacle : "Колко метра има до сблъсъка?"
             }
           </span>
         </label>
@@ -156,7 +156,7 @@ const CarCrashForm = ({
         </select>
         <label className={validationErrors.roadGradient ? `${styles.inputLabel} ${styles.errorLabel}` : styles.inputLabel}>
           <span className={validationErrors.roadGradient ? `${styles.labelContent} ${styles.errorContent}` : styles.labelContent}>
-            {validationErrors.roadGradient ? validationErrors.roadGradient : "Какъв е наклона на пътя ?"}
+            {validationErrors.roadGradient ? validationErrors.roadGradient : "Какъв е наклона на пътя?"}
           </span>
         </label>
       </div>
