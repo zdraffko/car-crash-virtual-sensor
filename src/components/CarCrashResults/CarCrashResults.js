@@ -10,14 +10,22 @@ let hasCrashed = false;
 let stoppingDistance = 0;
 let carCrashSpeed = 0;
 
-const CarCrashResults = ({ carSpeed, reactionTime, roadGradient, roadConditions, distanceToObstacle, history }) => {
+const CarCrashResults = ({
+  carSpeed,
+  reactionTime,
+  roadGradient,
+  roadConditions,
+  distanceToObstacle,
+  resetForm,
+  history
+}) => {
   useEffect(() => {
-    stoppingDistance = calculateStoppingDistance(
+    stoppingDistance = Math.abs(calculateStoppingDistance(
       Number(carSpeed),
       Number(reactionTime),
       Number(roadGradient),
       Number(roadConditions)
-    );
+    ));
     console.log(`stopping distance ${stoppingDistance}`);
     if (stoppingDistance > distanceToObstacle) {
       hasCrashed = true;
@@ -25,6 +33,7 @@ const CarCrashResults = ({ carSpeed, reactionTime, roadGradient, roadConditions,
       console.log(`car crash speed ${carCrashSpeed}`);
     }
   }, [carSpeed, distanceToObstacle, reactionTime, roadConditions, roadGradient]);
+
   return (
     <>
       <h1>Резултати</h1>
@@ -50,7 +59,10 @@ const CarCrashResults = ({ carSpeed, reactionTime, roadGradient, roadConditions,
       </div>
       <Button
         buttonType="button"
-        onClick={() => history.push("/car-crash-virtual-sensor")}
+        onClick={() => {
+          resetForm();
+          history.push("/car-crash-virtual-sensor");
+        }}
       >Ново изчисление
       </Button>
     </>

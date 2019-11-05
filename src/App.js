@@ -30,7 +30,13 @@ const App = () => {
         />
         <Route
           path="/car-crash-results"
-          render={(routProps) => <CarCrashResults {...formValidationObject.formValues} {...routProps} />}
+          render={(routProps) => (
+            <CarCrashResults
+              {...formValidationObject.formValues}
+              {...routProps}
+              resetForm={formValidationObject.handleFormReset}
+            />
+          )}
         />
         <Redirect exact path="/" to="/car-crash-virtual-sensor" />
         <Route render={() => <h1>404</h1>} />

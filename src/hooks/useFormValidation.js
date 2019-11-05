@@ -39,7 +39,19 @@ const useFormValidation = (initialFormState, validateForm) => {
     history.push("/car-crash-results");
   };
 
-  return { formValues, validationErrors, isSubmitting, handleValueChange, handleBlur, handleFormSubmit };
+  const handleFormReset = () => {
+    setFormValues(initialFormState);
+  };
+
+  return {
+    formValues,
+    validationErrors,
+    isSubmitting,
+    handleValueChange,
+    handleBlur,
+    handleFormSubmit,
+    handleFormReset
+  };
 };
 
 export default useFormValidation;
