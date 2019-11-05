@@ -1,3 +1,5 @@
+import countDecimals from "../countDecimals/countDecimals";
+
 const validateForm = (formValues) => {
   const errors = {};
 
@@ -7,6 +9,8 @@ const validateForm = (formValues) => {
     errors.driverWeight = "Моля въведи положителни килограми !";
   } else if (Number(formValues.driverWeight) === 0) {
     errors.driverWeight = "Моля въведи повече от 0 килограма !";
+  } else if (countDecimals(Number(formValues.driverWeight)) > 2) {
+    errors.driverWeight = "Моля въведи число до втория знак !";
   }
 
   if (!formValues.carSpeed) {
@@ -15,6 +19,8 @@ const validateForm = (formValues) => {
     errors.carSpeed = "Моля въведи положителна скорост !";
   } else if (Number(formValues.carSpeed) === 0) {
     errors.carSpeed = "Моля въведи скорост по-голяма от 0 !";
+  } else if (countDecimals(Number(formValues.carSpeed)) > 2) {
+    errors.carSpeed = "Моля въведи число до втория знак !";
   }
 
   if (!formValues.distanceToObstacle) {
@@ -23,6 +29,8 @@ const validateForm = (formValues) => {
     errors.distanceToObstacle = "Моля въведи положителн разстояние !";
   } else if (Number(formValues.distanceToObstacle) === 0) {
     errors.distanceToObstacle = "Моля въведи разстояние по-голямо от 0 !";
+  } else if (countDecimals(Number(formValues.distanceToObstacle)) > 2) {
+    errors.distanceToObstacle = "Моля въведи число до втория знак !";
   }
 
   if (!formValues.hasSeatbelt) {

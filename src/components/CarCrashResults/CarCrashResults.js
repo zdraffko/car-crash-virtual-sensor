@@ -65,6 +65,13 @@ const CarCrashResults = ({
         }}
       >Ново изчисление
       </Button>
+      <Button
+        buttonType="button"
+        onClick={() => {
+          history.push("/car-crash-virtual-sensor");
+        }}
+      >Промени изчислението
+      </Button>
     </>
   );
 };

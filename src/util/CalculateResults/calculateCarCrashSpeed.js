@@ -5,7 +5,7 @@ const calculateCarCrashSpeed = (carSpeed, reactionTime, distanceToObstacle) => {
 
   if (distanceToObstacle - reactionDistance > 0) {
     const d = distanceToObstacle - reactionDistance;
-    return Math.sqrt((speedInMeters ** 2) - 2 * rateOfDeceleration * d);
+    return Math.sqrt(Math.abs((speedInMeters ** 2) - 2 * rateOfDeceleration * d));
   }
 
   return speedInMeters;

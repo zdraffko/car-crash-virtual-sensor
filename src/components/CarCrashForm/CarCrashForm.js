@@ -45,6 +45,7 @@ const CarCrashForm = ({
           onBlur={handleBlur}
           min={1}
           required
+          step={0.01}
         />
         <label className={validationErrors.driverWeight ? `${styles.inputLabel} ${styles.errorLabel}` : styles.inputLabel}>
           <span className={validationErrors.driverWeight ? `${styles.labelContent} ${styles.errorContent}` : styles.labelContent}>
@@ -83,6 +84,7 @@ const CarCrashForm = ({
           onBlur={handleBlur}
           min={1}
           required
+          step={0.01}
         />
         <label className={validationErrors.carSpeed ? `${styles.inputLabel} ${styles.errorLabel}` : styles.inputLabel}>
           <span className={validationErrors.carSpeed ? `${styles.labelContent} ${styles.errorContent}` : styles.labelContent}>
@@ -124,6 +126,7 @@ const CarCrashForm = ({
           onBlur={handleBlur}
           min={1}
           required
+          step={0.01}
         />
         <label className={validationErrors.distanceToObstacle
           ? `${styles.inputLabel} ${styles.errorLabel}` : styles.inputLabel}
