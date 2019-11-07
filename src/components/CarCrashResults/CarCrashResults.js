@@ -1,14 +1,15 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 
 import calculateStoppingDistance from "../../util/CalculateResults/calculateStoppingDistance";
 import calculateCarCrashSpeed from "../../util/CalculateResults/calculateCarCrashSpeed";
+import calculateDeceleration from "../../util/CalculateResults/calculateDeceleration";
+import calculateDeathProbability from "../../util/CalculateResults/calculateDeathProbability";
 import Button from "../UI/Button/Button";
 
 import styles from "./CarCrashResults.module.css";
 
-let hasCrashed = false;
-let stoppingDistance = 0;
-let carCrashSpeed = 0;
+let carCrashSpeed;
+let deathProbability;
 
 const CarCrashResults = ({
   carSpeed,
@@ -16,23 +17,36 @@ const CarCrashResults = ({
   roadGradient,
   roadConditions,
   distanceToObstacle,
+  driverWeight,
+  seatbelt,
   resetForm,
   history
 }) => {
+  const [hasCrashed, setHasCrashed] = useState(false);
+
+  const stoppingDistance = useMemo(() => Math.abs(calculateStoppingDistance(
+    Number(carSpeed),
+    Number(reactionTime),
+    Number(roadGradient),
+    Number(roadConditions)
+  )), [carSpeed, reactionTime, roadGradient, roadConditions]) || 0;
+
   useEffect(() => {
-    stoppingDistance = Math.abs(calculateStoppingDistance(
-      Number(carSpeed),
-      Number(reactionTime),
-      Number(roadGradient),
-      Number(roadConditions)
-    ));
     console.log(`stopping distance ${stoppingDistance}`);
     if (stoppingDistance > distanceToObstacle) {
-      hasCrashed = true;
-      carCrashSpeed = calculateCarCrashSpeed(Number(carSpeed), Number(reactionTime), Number(distanceToObstacle));
+      setHasCrashed(true);
+      carCrashSpeed = calculateCarCrashSpeed(
+        Number(carSpeed),
+        Number(reactionTime),
+        Number(distanceToObstacle)
+      );
       console.log(`car crash speed ${carCrashSpeed}`);
+      const deceleration = calculateDeceleration(driverWeight, carCrashSpeed, seatbelt);
+      console.log(`car crash speed ${deceleration}`);
+      deathProbability = calculateDeathProbability(deceleration);
+      console.log(`car crash speed ${deathProbability}`);
     }
-  }, [carSpeed, distanceToObstacle, reactionTime, roadConditions, roadGradient]);
+  }, [stoppingDistance, distanceToObstacle, carSpeed, reactionTime, driverWeight, seatbelt]);
 
   return (
     <>
@@ -44,7 +58,8 @@ const CarCrashResults = ({
               <>
                 <h3>Ще има катастрофа</h3>
                 <p>Колата няма да успее да спре успешно преди мястото на сблъсък.</p>
-                <p>Скоростта на при сблъсъка ще е {carCrashSpeed.toFixed(2)} метра за секунда.</p>
+                <p>Скоростта на колата при сблъсъка ще е {carCrashSpeed.toFixed(2)} метра в секунда.</p>
+                <p>Вероятността за смърт е {deathProbability} %.</p>
               </>
             )
             : (
