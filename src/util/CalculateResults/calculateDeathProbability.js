@@ -21,7 +21,7 @@ const calculateDeathProbability = (deceleration) => {
     case deceleration < 55:
       return 98;
     case deceleration >= 55:
-      return 0;
+      return 100;
     default:
       return 0;
   }

@@ -1,15 +1,17 @@
 import React, { useState, useEffect, useMemo } from "react";
 
-import calculateStoppingDistance from "../../util/CalculateResults/calculateStoppingDistance";
-import calculateCarCrashSpeed from "../../util/CalculateResults/calculateCarCrashSpeed";
-import calculateDeceleration from "../../util/CalculateResults/calculateDeceleration";
-import calculateDeathProbability from "../../util/CalculateResults/calculateDeathProbability";
+// import calculateStoppingDistance from "../../util/CalculateResults/calculateStoppingDistance";
+// import calculateCarCrashSpeed from "../../util/CalculateResults/calculateCarCrashSpeed";
+// import calculateDeceleration from "../../util/CalculateResults/calculateDeceleration";
+// import calculateDeathProbability from "../../util/CalculateResults/calculateDeathProbability";
+import calculateResults from "../../util/CalculateResults/calculateResults";
 import Button from "../UI/Button/Button";
 
 import styles from "./CarCrashResults.module.css";
 
-let carCrashSpeed;
-let deathProbability;
+// let carCrashSpeed;
+// let deathProbability;
+// let stoppingDistance;
 
 const CarCrashResults = ({
   carSpeed,
@@ -18,35 +20,49 @@ const CarCrashResults = ({
   roadConditions,
   distanceToObstacle,
   driverWeight,
-  seatbelt,
+  hasSeatbelt,
   resetForm,
   history
 }) => {
-  const [hasCrashed, setHasCrashed] = useState(false);
+  // const [hasCrashed, setHasCrashed] = useState(false);
 
-  const stoppingDistance = useMemo(() => Math.abs(calculateStoppingDistance(
-    Number(carSpeed),
-    Number(reactionTime),
-    Number(roadGradient),
-    Number(roadConditions)
-  )), [carSpeed, reactionTime, roadGradient, roadConditions]) || 0;
+  const { stoppingDistance, hasCrashed, carCrashSpeed, deceleration, deathProbability } = useMemo(() => calculateResults(
+    carSpeed,
+    reactionTime,
+    roadGradient,
+    roadConditions,
+    distanceToObstacle,
+    driverWeight,
+    hasSeatbelt
+  ), [carSpeed, distanceToObstacle, driverWeight, hasSeatbelt, reactionTime, roadConditions, roadGradient]);
 
-  useEffect(() => {
-    console.log(`stopping distance ${stoppingDistance}`);
-    if (stoppingDistance > distanceToObstacle) {
-      setHasCrashed(true);
-      carCrashSpeed = calculateCarCrashSpeed(
-        Number(carSpeed),
-        Number(reactionTime),
-        Number(distanceToObstacle)
-      );
-      console.log(`car crash speed ${carCrashSpeed}`);
-      const deceleration = calculateDeceleration(driverWeight, carCrashSpeed, seatbelt);
-      console.log(`car crash speed ${deceleration}`);
-      deathProbability = calculateDeathProbability(deceleration);
-      console.log(`car crash speed ${deathProbability}`);
-    }
-  }, [stoppingDistance, distanceToObstacle, carSpeed, reactionTime, driverWeight, seatbelt]);
+  console.log(`stopping distance ${stoppingDistance}`);
+  console.log(`car crash speed ${carCrashSpeed}`);
+  console.log(`deceleration ${deceleration}`);
+  console.log(`death probability ${deathProbability}`);
+  // const stoppingDistance = useMemo(() => Math.abs(calculateStoppingDistance(
+  //   Number(carSpeed),
+  //   Number(reactionTime),
+  //   Number(roadGradient),
+  //   Number(roadConditions)
+  // )), [carSpeed, reactionTime, roadGradient, roadConditions]) || 0;
+
+  // useEffect(() => {
+  //   console.log(`stopping distance ${stoppingDistance}`);
+  //   if (stoppingDistance > distanceToObstacle) {
+  //     carCrashSpeed = calculateCarCrashSpeed(
+  //       Number(carSpeed),
+  //       Number(reactionTime),
+  //       Number(distanceToObstacle)
+  //     );
+  //     console.log(`car crash speed ${carCrashSpeed}`);
+  //     const deceleration = calculateDeceleration(driverWeight, carCrashSpeed, seatbelt);
+  //     console.log(`deceleration ${deceleration}`);
+  //     deathProbability = calculateDeathProbability(deceleration);
+  //     console.log(`death probability ${deathProbability}`);
+  //     setHasCrashed(true);
+  //   }
+  // }, [carSpeed, distanceToObstacle, driverWeight, reactionTime, seatbelt, stoppingDistance]);
 
   return (
     <>

@@ -25,7 +25,7 @@ const CarCrashForm = ({
           required
         >
           <option value="" disabled>{}</option>
-          <option value={0.02}>С колан</option>
+          <option value={0.2}>С колан</option>
           <option value={0.04}>Без колан</option>
         </select>
         <label className={validationErrors.hasSeatbelt ? `${styles.inputLabel} ${styles.errorLabel}` : styles.inputLabel}>
