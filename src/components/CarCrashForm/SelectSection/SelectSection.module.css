@@ -1,0 +1,74 @@
+.selectSection {
+  width: 100%;
+  height: 10%;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: calc(20px + 2vmin);
+}
+
+.selectSection select {
+  position: absolute;
+  bottom: 5px;
+  width: 100%;
+  font-size: calc(5px + 2vmin);
+  outline: none;
+  background-color: transparent;
+  border: none;
+}
+
+.selectSection select:hover {
+  cursor: pointer;
+}
+
+.inputLabel {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  border-bottom: 1px solid black;
+  font-size: calc(5px + 2vmin);
+  color: black;
+}
+
+.inputLabel::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -1;
+  height: 100%;
+  width: 100%;
+  border-bottom: 2px solid #67dfd4;
+  transform: translateX(-100%);
+  transition: transform 400ms ease;
+}
+
+.labelContent {
+  position: absolute;
+
+  left: 5px;
+  transition: all 300ms ease;
+}
+
+.selectSection select:focus + .inputLabel .labelContent,
+.selectSection select:valid + .inputLabel .labelContent {
+  transform: translateY(calc(-5px - 2vmin));
+  font-size: calc(2px + 2vmin);
+  color: #67dfd4;
+}
+
+.selectSection select:focus + .inputLabel::after,
+.selectSection select:valid + .inputLabel::after {
+  transform: translateX(0%);
+}
+
+.errorContent {
+  transform: translateY(calc(-5px - 2vmin));
+  font-size: calc(2px + 2vmin);
+  color: #ed706f !important;
+}
+
+.errorLabel {
+  border-bottom: 2px solid #ed706f;
+}

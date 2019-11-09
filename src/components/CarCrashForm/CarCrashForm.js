@@ -1,5 +1,6 @@
 import React from "react";
 
+import SelectSection from "./SelectSection/SelectSection";
 import Button from "../UI/Button/Button";
 
 import styles from "./CarCrashForm.module.css";
@@ -16,27 +17,18 @@ const CarCrashForm = ({
   <>
     <h1>Car Crash Virtual Sensor</h1>
     <form className={styles.Form} onSubmit={(event) => handleFormSubmit(event, history)}>
-      <div className={styles.selectSection}>
-        <select
-          name="hasSeatbelt"
-          value={formValues.hasSeatbelt}
-          onChange={handleValueChange}
-          onBlur={handleBlur}
-          required
-        >
-          <option value="" disabled>{}</option>
-          <option value={0.2}>С колан</option>
-          <option value={0.04}>Без колан</option>
-        </select>
-        <label className={validationErrors.hasSeatbelt ? `${styles.inputLabel} ${styles.errorLabel}` : styles.inputLabel}>
-          <span className={validationErrors.hasSeatbelt ? `${styles.labelContent} ${styles.errorContent}` : styles.labelContent}>
-            {validationErrors.hasSeatbelt ? validationErrors.hasSeatbelt : "Имаш ли колан?"}
-          </span>
-        </label>
-      </div>
+      <SelectSection
+        selectSectionName="hasSeatbelt"
+        selectSectionValue={formValues.hasSeatbelt}
+        handleOnChange={handleValueChange}
+        handleOnBlur={handleBlur}
+        isRequired
+        validationErrors={validationErrors.hasSeatbelt}
+        selectSectionOptions={{ "С колан": 0.2, "Без колан": 0.04 }}
+        labelContent="Имаш ли колан?"
+      />
 
       <div className={styles.inputSection}>
-
         <input
           name="driverWeight"
           type="number"
@@ -54,28 +46,23 @@ const CarCrashForm = ({
         </label>
       </div>
 
-      <div className={styles.selectSection}>
-        <select
-          name="reactionTime"
-          value={formValues.reactionTime}
-          onChange={handleValueChange}
-          onBlur={handleBlur}
-          required
-        >
-          <option value="" disabled>{}</option>
-          <option value={1}>много внимателен</option>
-          <option value={1.5}>обикновен</option>
-          <option value={2}>изморен / възрастен</option>
-          <option value={2.5}>нетрезвен</option>
-        </select>
-        <label className={validationErrors.reactionTime ? `${styles.inputLabel} ${styles.errorLabel}` : styles.inputLabel}>
-          <span className={validationErrors.reactionTime ? `${styles.labelContent} ${styles.errorContent}` : styles.labelContent}>
-            {validationErrors.reactionTime ? validationErrors.reactionTime : "Какъв вид шофьор си?"}
-          </span>
-        </label>
-      </div>
-      <div className={styles.inputSection}>
+      <SelectSection
+        selectSectionName="reactionTime"
+        selectSectionValue={formValues.reactionTime}
+        handleOnChange={handleValueChange}
+        handleOnBlur={handleBlur}
+        isRequired
+        validationErrors={validationErrors.reactionTime}
+        selectSectionOptions={{
+          "много внимателен": 1,
+          обикновен: 1.5,
+          "изморен / възрастен": 2,
+          нетрезвен: 2.5
+        }}
+        labelContent="Какъв вид шофьор си?"
+      />
 
+      <div className={styles.inputSection}>
         <input
           name="carSpeed"
           type="number"
@@ -93,31 +80,23 @@ const CarCrashForm = ({
         </label>
       </div>
 
-      <div className={styles.selectSection}>
-        <select
-          name="roadConditions"
-          value={formValues.roadConditions}
-          onChange={handleValueChange}
-          onBlur={handleBlur}
-          required
-        >
-          <option value="" disabled>{}</option>
-          <option value={0.92}>сух асфалт</option>
-          <option value={0.7}>мокър асфалт</option>
-          <option value={0.2}>заснежен асфалт</option>
-          <option value={0.1}>заледен асфалт</option>
-        </select>
-        <label className={validationErrors.roadConditions ? `${styles.inputLabel} ${styles.errorLabel}` : styles.inputLabel}>
-          <span className={validationErrors.roadConditions
-            ? `${styles.labelContent} ${styles.errorContent}` : styles.labelContent}
-          >
-            {validationErrors.roadConditions ? validationErrors.roadConditions : "Каква е пътната обстановка?"}
-          </span>
-        </label>
-      </div>
+      <SelectSection
+        selectSectionName="roadConditions"
+        selectSectionValue={formValues.roadConditions}
+        handleOnChange={handleValueChange}
+        handleOnBlur={handleBlur}
+        isRequired
+        validationErrors={validationErrors.roadConditions}
+        selectSectionOptions={{
+          "сух асфалт": 0.92,
+          "мокър асфалт": 0.7,
+          "заснежен асфалт": 0.2,
+          "заледен асфалт": 0.1
+        }}
+        labelContent="Каква е пътната обстановка?"
+      />
 
       <div className={styles.inputSection}>
-
         <input
           name="distanceToObstacle"
           type="number"
@@ -142,27 +121,23 @@ const CarCrashForm = ({
         </label>
       </div>
 
-      <div className={styles.selectSection}>
-        <select
-          name="roadGradient"
-          value={formValues.roadGradient}
-          onChange={handleValueChange}
-          onBlur={handleBlur}
-          required
-        >
-          <option value="" disabled>{}</option>
-          <option value={0}>без наклон</option>
-          <option value={0.1}>лек наклон нагоре</option>
-          <option value={0.3}>стръмен наклон нагоре</option>
-          <option value={-0.1}>лек наклон надолу</option>
-          <option value={-0.3}>стръмен наклон надолу</option>
-        </select>
-        <label className={validationErrors.roadGradient ? `${styles.inputLabel} ${styles.errorLabel}` : styles.inputLabel}>
-          <span className={validationErrors.roadGradient ? `${styles.labelContent} ${styles.errorContent}` : styles.labelContent}>
-            {validationErrors.roadGradient ? validationErrors.roadGradient : "Какъв е наклона на пътя?"}
-          </span>
-        </label>
-      </div>
+      <SelectSection
+        selectSectionName="roadGradient"
+        selectSectionValue={formValues.roadGradient}
+        handleOnChange={handleValueChange}
+        handleOnBlur={handleBlur}
+        isRequired
+        validationErrors={validationErrors.roadGradient}
+        selectSectionOptions={{
+          "без наклон": 0,
+          "лек наклон нагоре": 0.1,
+          "стръмен наклон нагоре": 0.3,
+          "лек наклон надолу": -0.1,
+          "стръмен наклон надолу": -0.3
+        }}
+        labelContent="Какъв е наклона на пътя?"
+      />
+
       <Button buttonType="submit" isSubmitting={isSubmitting}>Изчисли</Button>
     </form>
   </>
