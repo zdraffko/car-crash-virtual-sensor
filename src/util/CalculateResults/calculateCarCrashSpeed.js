@@ -1,6 +1,6 @@
-const calculateCarCrashSpeed = (carSpeed, reactionTime, distanceToObstacle) => {
+const calculateCarCrashSpeed = (carSpeed, reactionTime, distanceToObstacle, roadConditions) => {
   const speedInMeters = carSpeed / 3.6;
-  const rateOfDeceleration = 10;
+  const rateOfDeceleration = roadConditions * 9.8;
   const reactionDistance = speedInMeters * reactionTime;
 
   if (distanceToObstacle - reactionDistance > 0) {

@@ -31,8 +31,9 @@ const SelectSection = ({
     <FieldLabel
       validationErrors={validationErrors}
       labelContent={labelContent}
+      styles={styles}
     />
   </div>
 );
 
-export default SelectSection;
+export default React.memo(SelectSection);

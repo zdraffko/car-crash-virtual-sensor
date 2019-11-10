@@ -1,6 +1,7 @@
 import React from "react";
 
 import SelectSection from "./SelectSection/SelectSection";
+import InputSection from "./InputSection/InputSection";
 import Button from "../UI/Button/Button";
 
 import styles from "./CarCrashForm.module.css";
@@ -28,23 +29,18 @@ const CarCrashForm = ({
         labelContent="Имаш ли колан?"
       />
 
-      <div className={styles.inputSection}>
-        <input
-          name="driverWeight"
-          type="number"
-          value={formValues.driverWeight}
-          onChange={handleValueChange}
-          onBlur={handleBlur}
-          min={1}
-          required
-          step={0.01}
-        />
-        <label className={validationErrors.driverWeight ? `${styles.inputLabel} ${styles.errorLabel}` : styles.inputLabel}>
-          <span className={validationErrors.driverWeight ? `${styles.labelContent} ${styles.errorContent}` : styles.labelContent}>
-            {validationErrors.driverWeight ? validationErrors.driverWeight : "Какво е теглото ти?"}
-          </span>
-        </label>
-      </div>
+      <InputSection
+        inputSectionName="driverWeight"
+        inputSectionType="number"
+        inputSectionValue={formValues.driverWeight}
+        handleOnChange={handleValueChange}
+        handleOnBlur={handleBlur}
+        inputSectionMinValue={1}
+        inputSectionStep={0.1}
+        isRequired
+        validationErrors={validationErrors.driverWeight}
+        labelContent="Какво е теглото ти?"
+      />
 
       <SelectSection
         selectSectionName="reactionTime"
@@ -62,23 +58,18 @@ const CarCrashForm = ({
         labelContent="Какъв вид шофьор си?"
       />
 
-      <div className={styles.inputSection}>
-        <input
-          name="carSpeed"
-          type="number"
-          value={formValues.carSpeed}
-          onChange={handleValueChange}
-          onBlur={handleBlur}
-          min={1}
-          required
-          step={0.01}
-        />
-        <label className={validationErrors.carSpeed ? `${styles.inputLabel} ${styles.errorLabel}` : styles.inputLabel}>
-          <span className={validationErrors.carSpeed ? `${styles.labelContent} ${styles.errorContent}` : styles.labelContent}>
-            {validationErrors.carSpeed ? validationErrors.carSpeed : "Каква е скоростта на колата?"}
-          </span>
-        </label>
-      </div>
+      <InputSection
+        inputSectionName="carSpeed"
+        inputSectionType="number"
+        inputSectionValue={formValues.carSpeed}
+        handleOnChange={handleValueChange}
+        handleOnBlur={handleBlur}
+        inputSectionMinValue={1}
+        inputSectionStep={0.1}
+        isRequired
+        validationErrors={validationErrors.carSpeed}
+        labelContent="Каква е скоростта на колата?"
+      />
 
       <SelectSection
         selectSectionName="roadConditions"
@@ -96,30 +87,18 @@ const CarCrashForm = ({
         labelContent="Каква е пътната обстановка?"
       />
 
-      <div className={styles.inputSection}>
-        <input
-          name="distanceToObstacle"
-          type="number"
-          value={formValues.distanceToObstacle}
-          onChange={handleValueChange}
-          onBlur={handleBlur}
-          min={1}
-          required
-          step={0.01}
-        />
-        <label className={validationErrors.distanceToObstacle
-          ? `${styles.inputLabel} ${styles.errorLabel}` : styles.inputLabel}
-        >
-          <span className={validationErrors.distanceToObstacle
-            ? `${styles.labelContent} ${styles.errorContent}` : styles.labelContent}
-          >
-            {
-              validationErrors.distanceToObstacle
-                ? validationErrors.distanceToObstacle : "Колко метра има до сблъсъка?"
-            }
-          </span>
-        </label>
-      </div>
+      <InputSection
+        inputSectionName="distanceToObstacle"
+        inputSectionType="number"
+        inputSectionValue={formValues.distanceToObstacle}
+        handleOnChange={handleValueChange}
+        handleOnBlur={handleBlur}
+        inputSectionMinValue={1}
+        inputSectionStep={0.1}
+        isRequired
+        validationErrors={validationErrors.distanceToObstacle}
+        labelContent="Колко метра има до сблъсъка?"
+      />
 
       <SelectSection
         selectSectionName="roadGradient"
