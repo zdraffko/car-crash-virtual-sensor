@@ -1,4 +1,8 @@
 .App {
+  width: 100vw;
+}
+
+.VirtualSensor {
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -6,6 +10,7 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   height: 90vh;
+  min-height: 500px;
   width: 70vw;
   padding: 0 calc(5px + 2vmin) calc(5px + 2vmin) calc(5px + 2vmin);
   background-color: white;
@@ -13,7 +18,7 @@
   box-shadow: 7px 5px 7px 2px #ccc;
 }
 
-.App h1 {
+.VirtualSensor h1 {
   color: #313840;
   margin: 10px 0 calc(5px + 2vmin) 0;
 }

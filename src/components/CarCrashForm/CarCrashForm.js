@@ -16,7 +16,7 @@ const CarCrashForm = ({
   history
 }) => (
   <>
-    <h1>Car Crash Virtual Sensor</h1>
+    <h1>Виртуален Сензор</h1>
     <form className={styles.Form} onSubmit={(event) => handleFormSubmit(event, history)}>
       <SelectSection
         selectSectionName="hasSeatbelt"

@@ -1,0 +1,12 @@
+.NavBar {
+  float: left;
+  width: 15vw;
+  height: 90vh;
+  margin-right: 5vw;
+}
+
+@media (max-width: 1250px) {
+  .NavBar {
+    display: none;
+  }
+}
