@@ -38,7 +38,8 @@ const CarCrashResults = ({
         Number(carSpeed),
         Number(reactionTime),
         Number(distanceToObstacle),
-        Number(roadConditions)
+        Number(roadConditions),
+        Number(roadGradient)
       );
       console.log(`car crash speed ${carCrashSpeed.current}`);
       const deceleration = calculateDeceleration(Number(driverWeight), carCrashSpeed.current, Number(hasSeatbelt));

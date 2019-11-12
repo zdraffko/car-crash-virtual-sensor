@@ -6,6 +6,7 @@
 .NavItem a {
   color: white;
   text-decoration: none;
+  text-align: center;
   font-size: calc(2px + 2vmin);
   width: 100%;
   display: block;
@@ -24,6 +25,7 @@
 
 @media (max-width: 1250px) {
   .NavItem a {
+    font-size: calc(10px + 2vmin);
     margin: calc(30px + 2vmin) 0;
   }
 

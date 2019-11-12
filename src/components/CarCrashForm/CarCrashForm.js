@@ -39,7 +39,7 @@ const CarCrashForm = ({
         inputSectionStep={0.1}
         isRequired
         validationErrors={validationErrors.driverWeight}
-        labelContent="Какво е теглото ти?"
+        labelContent="Какво е теглото ти (в кг)?"
       />
 
       <SelectSection
@@ -68,7 +68,7 @@ const CarCrashForm = ({
         inputSectionStep={0.1}
         isRequired
         validationErrors={validationErrors.carSpeed}
-        labelContent="Каква е скоростта на колата?"
+        labelContent="Каква е скоростта на колата (в км/ч)?"
       />
 
       <SelectSection
