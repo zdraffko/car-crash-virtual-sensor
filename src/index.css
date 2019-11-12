@@ -9,7 +9,7 @@ body {
 
   align-items: center;
   height: 100vh;
-  background: linear-gradient(110deg, #313840 60%, #ffff 60%);
+  background-color: #313840;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;

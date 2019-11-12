@@ -4,8 +4,8 @@ import NavItems from "../NavItems/NavItems";
 
 import styles from "./SideDrawer.module.css";
 
-const SideDrawer = () => (
-  <div className={styles.SideDrawer}>
+const SideDrawer = ({ isOpen }) => (
+  <div className={`${styles.SideDrawer} ${isOpen ? styles.Opened : styles.Closed}`}>
     <nav>
       <NavItems />
     </nav>

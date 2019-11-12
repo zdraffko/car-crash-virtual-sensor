@@ -2,11 +2,11 @@ import React from "react";
 
 import styles from "./BurgerMenu.module.css";
 
-const BurgerMenu = ({ openSideDrawer }) => (
+const BurgerMenu = ({ toggleSideDrawer }) => (
   <div
     role="presentation"
     className={styles.BurgerMenu}
-    onClick={openSideDrawer}
+    onClick={toggleSideDrawer}
   >
     <div />
     <div />

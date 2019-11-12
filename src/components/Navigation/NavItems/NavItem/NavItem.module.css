@@ -24,11 +24,11 @@
 
 @media (max-width: 1250px) {
   .NavItem a {
-    margin: calc(50px + 2vmin) 0;
+    margin: calc(30px + 2vmin) 0;
   }
 
   .NavItem a:active,
   .NavItem a.activeNavItem {
-    margin: 0;
+    margin-left: 0;
   }
 }

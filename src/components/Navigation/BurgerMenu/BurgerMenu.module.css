@@ -9,6 +9,8 @@
   margin-left: 10px;
   box-sizing: border-box;
   cursor: pointer;
+  position: relative;
+  z-index: 1000;
 }
 
 .BurgerMenu div {

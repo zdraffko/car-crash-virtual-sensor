@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Route, Redirect, Switch } from "react-router-dom";
 
 import CarCrashForm from "./components/CarCrashForm/CarCrashForm";
@@ -23,11 +23,11 @@ const initialFormState = {
 
 const App = () => {
   const formValidationObject = useFormValidation(initialFormState, validateForm);
-
+  const [isSideDrawerOpen, setIsSideDrawerOpen] = useState(false);
   return (
     <div className="App">
-      <BurgerMenu />
-      <SideDrawer />
+      <BurgerMenu toggleSideDrawer={() => setIsSideDrawerOpen((prevState) => !prevState)} />
+      <SideDrawer isOpen={isSideDrawerOpen} />
       <NavBar />
       <div className="VirtualSensor">
         <Switch>
