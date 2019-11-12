@@ -3,6 +3,8 @@ import { Route, Redirect, Switch } from "react-router-dom";
 
 import CarCrashForm from "./components/CarCrashForm/CarCrashForm";
 import CarCrashResults from "./components/CarCrashResults/CarCrashResults";
+import BurgerMenu from "./components/Navigation/BurgerMenu/BurgerMenu";
+import SideDrawer from "./components/Navigation/SideDrawer/SideDrawer";
 import NavBar from "./components/Navigation/NavBar/NavBar";
 
 import useFormValidation from "./hooks/useFormValidation";
@@ -24,6 +26,8 @@ const App = () => {
 
   return (
     <div className="App">
+      <BurgerMenu />
+      <SideDrawer />
       <NavBar />
       <div className="VirtualSensor">
         <Switch>

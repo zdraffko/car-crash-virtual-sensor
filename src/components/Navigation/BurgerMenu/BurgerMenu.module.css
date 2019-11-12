@@ -1,0 +1,24 @@
+.BurgerMenu {
+  width: calc(30px + 2vmin);
+  height: 7vh;
+  display: flex;
+  flex-flow: column;
+  justify-content: space-around;
+  align-items: center;
+  padding: 10px 0;
+  margin-left: 10px;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+
+.BurgerMenu div {
+  width: 90%;
+  height: calc(1px + 0.5vmin);
+  background-color: white;
+}
+
+@media (min-width: 1250px) {
+  .BurgerMenu {
+    display: none;
+  }
+}

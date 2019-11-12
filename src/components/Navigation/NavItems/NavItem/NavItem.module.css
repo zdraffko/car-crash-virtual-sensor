@@ -21,3 +21,14 @@
   margin-left: calc(10px + 2vmin);
   border: 1px solid #67dfd4;
 }
+
+@media (max-width: 1250px) {
+  .NavItem a {
+    margin: calc(50px + 2vmin) 0;
+  }
+
+  .NavItem a:active,
+  .NavItem a.activeNavItem {
+    margin: 0;
+  }
+}

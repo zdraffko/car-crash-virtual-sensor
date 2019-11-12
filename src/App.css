@@ -22,3 +22,9 @@
   color: #313840;
   margin: 10px 0 calc(5px + 2vmin) 0;
 }
+
+@media (max-width: 1250px) {
+  .VirtualSensor {
+    margin: auto;
+  }
+}
