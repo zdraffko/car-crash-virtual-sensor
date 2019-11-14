@@ -3,9 +3,9 @@ import { NavLink } from "react-router-dom";
 
 import styles from "./NavItem.module.css";
 
-const NavItem = ({ link, children }) => (
+const NavItem = ({ link, children, onClick }) => (
   <li className={styles.NavItem}>
-    <NavLink to={link} activeClassName={styles.activeNavItem}>{children}</NavLink>
+    <NavLink to={link} activeClassName={styles.activeNavItem} onClick={onClick}>{children}</NavLink>
   </li>
 );
 

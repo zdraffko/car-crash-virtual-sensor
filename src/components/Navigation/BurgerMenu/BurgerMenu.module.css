@@ -1,6 +1,6 @@
 .BurgerMenu {
   width: calc(30px + 2vmin);
-  height: 7vh;
+  height: 50px;
   display: flex;
   flex-flow: column;
   justify-content: space-around;
@@ -13,10 +13,25 @@
   z-index: 1000;
 }
 
-.BurgerMenu div {
-  width: 90%;
-  height: calc(1px + 0.5vmin);
+.BurgerMenu #lineOne,
+.BurgerMenu #lineTwo,
+.BurgerMenu #lineThree {
+  width: 80%;
+  height: 2px;
   background-color: white;
+  transition: all 0.3s ease;
+}
+
+.toggle#lineOne {
+  transform: rotate(-45deg) translate(-7.5px, 6.5px);
+}
+
+.toggle#lineTwo {
+  opacity: 0;
+}
+
+.toggle#lineThree {
+  transform: rotate(45deg) translate(-7.5px, -6.5px);
 }
 
 @media (min-width: 1250px) {
