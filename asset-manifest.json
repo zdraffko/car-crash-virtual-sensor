@@ -1,21 +1,21 @@
 {
   "files": {
-    "main.css": "/car-crash-virtual-sensor/static/css/main.63d34c44.chunk.css",
-    "main.js": "/car-crash-virtual-sensor/static/js/main.5ecf7465.chunk.js",
-    "main.js.map": "/car-crash-virtual-sensor/static/js/main.5ecf7465.chunk.js.map",
+    "main.css": "/car-crash-virtual-sensor/static/css/main.f1e01175.chunk.css",
+    "main.js": "/car-crash-virtual-sensor/static/js/main.c50c7ad7.chunk.js",
+    "main.js.map": "/car-crash-virtual-sensor/static/js/main.c50c7ad7.chunk.js.map",
     "runtime-main.js": "/car-crash-virtual-sensor/static/js/runtime-main.74695420.js",
     "runtime-main.js.map": "/car-crash-virtual-sensor/static/js/runtime-main.74695420.js.map",
-    "static/js/2.6bc542fa.chunk.js": "/car-crash-virtual-sensor/static/js/2.6bc542fa.chunk.js",
-    "static/js/2.6bc542fa.chunk.js.map": "/car-crash-virtual-sensor/static/js/2.6bc542fa.chunk.js.map",
+    "static/js/2.4fe115a5.chunk.js": "/car-crash-virtual-sensor/static/js/2.4fe115a5.chunk.js",
+    "static/js/2.4fe115a5.chunk.js.map": "/car-crash-virtual-sensor/static/js/2.4fe115a5.chunk.js.map",
     "index.html": "/car-crash-virtual-sensor/index.html",
-    "precache-manifest.f3c08cbf388e86d16e7ca17a6262b3aa.js": "/car-crash-virtual-sensor/precache-manifest.f3c08cbf388e86d16e7ca17a6262b3aa.js",
+    "precache-manifest.44898b4ecfa2f2490ca351b47e575ade.js": "/car-crash-virtual-sensor/precache-manifest.44898b4ecfa2f2490ca351b47e575ade.js",
     "service-worker.js": "/car-crash-virtual-sensor/service-worker.js",
-    "static/css/main.63d34c44.chunk.css.map": "/car-crash-virtual-sensor/static/css/main.63d34c44.chunk.css.map"
+    "static/css/main.f1e01175.chunk.css.map": "/car-crash-virtual-sensor/static/css/main.f1e01175.chunk.css.map"
   },
   "entrypoints": [
     "static/js/runtime-main.74695420.js",
-    "static/js/2.6bc542fa.chunk.js",
-    "static/css/main.63d34c44.chunk.css",
-    "static/js/main.5ecf7465.chunk.js"
+    "static/js/2.4fe115a5.chunk.js",
+    "static/css/main.f1e01175.chunk.css",
+    "static/js/main.c50c7ad7.chunk.js"
   ]
 }
