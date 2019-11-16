@@ -12,4 +12,4 @@ const NavItems = ({ onClick }) => (
   </ul>
 );
 
-export default NavItems;
+export default React.memo(NavItems);

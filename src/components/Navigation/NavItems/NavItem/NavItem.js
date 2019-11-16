@@ -9,4 +9,4 @@ const NavItem = ({ link, children, onClick }) => (
   </li>
 );
 
-export default NavItem;
+export default React.memo(NavItem);

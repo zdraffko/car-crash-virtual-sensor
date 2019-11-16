@@ -10,4 +10,4 @@ const NavBar = () => (
   </nav>
 );
 
-export default NavBar;
+export default React.memo(NavBar);

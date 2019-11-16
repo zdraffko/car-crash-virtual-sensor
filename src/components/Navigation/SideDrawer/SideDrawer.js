@@ -12,4 +12,4 @@ const SideDrawer = ({ isOpen, closeSideDrawer }) => (
   </div>
 );
 
-export default SideDrawer;
+export default React.memo(SideDrawer);
