@@ -1,0 +1,35 @@
+.Documentation {
+  padding-left: calc(5px + 2vmin);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  text-align: start;
+  overflow-y: scroll;
+}
+
+.Documentation h3 {
+  margin: 20px;
+}
+
+.Documentation li {
+  text-align: start;
+  margin: 5px;
+}
+
+.Documentation ol p {
+  margin-top: 30px;
+}
+
+.Documentation ol {
+  margin: 10px;
+}
+
+.Documentation ul {
+  position: relative;
+  left: 20px;
+}
+
+.Documentation h5 {
+  margin: 40px 0 10px 20px;
+}
