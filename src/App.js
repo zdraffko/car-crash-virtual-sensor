@@ -34,7 +34,15 @@ const App = () => {
       <NavBar />
       <div className="VirtualSensor">
         <Switch>
-          <Route path="/car-crash-home" component={CarCrashHome} />
+          <Route
+            path="/car-crash-home"
+            render={(routProps) => (
+              <CarCrashHome
+                {...routProps}
+                resetForm={formValidationObject.handleFormReset}
+              />
+            )}
+          />
           <Route
             path="/car-crash-virtual-sensor"
             render={(routProps) => <CarCrashForm {...formValidationObject} {...routProps} />}

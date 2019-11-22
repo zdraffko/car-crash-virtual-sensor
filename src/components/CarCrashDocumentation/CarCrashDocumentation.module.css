@@ -1,5 +1,4 @@
 .Documentation {
-  padding-left: calc(5px + 2vmin);
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -7,16 +6,51 @@
   text-align: start;
   overflow-y: scroll;
 }
+.Documentation section {
+  width: 100%;
+  padding-left: calc(5px + 2vmin);
+  margin-bottom: calc(50px + 2vmin);
+}
 
-.Documentation h3 {
+.Documentation .sectionTitle {
   margin: 20px;
 }
 
-.Documentation li {
-  text-align: start;
-  margin: 5px;
+.Documentation .sectionSubTitle {
+  margin: 30px 0 10px 0;
 }
 
+.Documentation section ol > li {
+  text-align: start;
+  margin-left: calc(20px + 2vmin);
+  margin-bottom: 10px;
+}
+
+.Documentation section ul > li {
+  text-align: start;
+  margin-left: calc(20px + 2vmin);
+}
+
+.Documentation section img {
+  width: 100%;
+}
+
+.Documentation section h6 {
+  text-align: center;
+  margin-top: 50px;
+}
+
+.Documentation section a {
+  width: 100%;
+  text-decoration: none;
+  text-align: center;
+  color: black;
+}
+
+.Documentation section a:hover {
+  color: #67dfd4;
+}
+/* 
 .Documentation ol p {
   margin-top: 30px;
 }
@@ -32,4 +66,4 @@
 
 .Documentation h5 {
   margin: 40px 0 10px 20px;
-}
+} */
