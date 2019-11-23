@@ -51,7 +51,6 @@ const CarCrashDocumentation = () => (
           </li>
 
           <li><p>Описание на работата на виртуалния сензор</p></li>
-          <li><p>Резултати от проведени тестове</p></li>
           <li><p>Източници</p></li>
         </ol>
       </section>
@@ -325,7 +324,8 @@ distance получаваме 13.9 m, а за breaking distance 10.7 m. След
 
           <li>
             <a
-              href="https://www.webpages.uidaho.edu/niatt_labmanual/chapters/geometricdesign/theoryandconcepts/BrakingDistance.htm"
+              href="https://www.webpages.uidaho.edu/niatt_labmanual/chapters/
+              geometricdesign/theoryandconcepts/BrakingDistance.htm"
               target="_blank"
               rel="noopener noreferrer"
             >Braking Distance

@@ -22,6 +22,7 @@ const CarCrashResults = ({
   const stoppingDistance = useRef(null);
   const carCrashSpeed = useRef(0);
   const deathProbability = useRef(0);
+  const impactForce = useRef(0);
   const hasCrashed = useRef(false);
 
   useEffect(() => {
@@ -31,7 +32,7 @@ const CarCrashResults = ({
       Number(roadGradient),
       Number(roadConditions)
     ));
-    console.log(`stopping distance ${stoppingDistance.current}`);
+
     if (stoppingDistance.current > distanceToObstacle) {
       hasCrashed.current = true;
       carCrashSpeed.current = calculateCarCrashSpeed(
@@ -41,11 +42,11 @@ const CarCrashResults = ({
         Number(roadConditions),
         Number(roadGradient)
       );
-      console.log(`car crash speed ${carCrashSpeed.current}`);
-      const deceleration = calculateDeceleration(Number(driverWeight), carCrashSpeed.current, Number(hasSeatbelt));
-      console.log(`deceleration ${deceleration}`);
+
+      const [deceleration, impactF] = calculateDeceleration(Number(driverWeight), carCrashSpeed.current, Number(hasSeatbelt));
+      impactForce.current = impactF;
+
       deathProbability.current = calculateDeathProbability(deceleration);
-      console.log(`death probability ${deathProbability.current}`);
     }
   }, [carSpeed, distanceToObstacle, driverWeight, hasSeatbelt, reactionTime, roadConditions, roadGradient]);
 
@@ -59,10 +60,13 @@ const CarCrashResults = ({
               <>
                 <h3>Ще има катастрофа</h3>
                 <p>Колата няма да успее да спре успешно преди мястото на сблъсък.</p>
+                <p>На колата са необходими {stoppingDistance.current.toFixed(2)} метра за да избегне сблъсъка.
+                </p>
                 <p>Скоростта на колата при сблъсъка ще е {carCrashSpeed.current.toFixed(2)} метра в секунда ({
                 (carCrashSpeed.current * 3.6).toFixed(2)
 } километра в час).
                 </p>
+                <p>Силата при удара ще е {impactForce.current.toFixed(2)} Нютона.</p>
                 <p>Вероятността за смърт е {deathProbability.current} %.</p>
               </>
             )
@@ -72,7 +76,7 @@ const CarCrashResults = ({
                 <p>Колата ще успее да спре успешно на {
                   stoppingDistance.current
                     ? (Number(distanceToObstacle) - stoppingDistance.current).toFixed(2) : 0
-} метра от мястото на сблъсък.
+} метра от мястото на сблъсък. Вероятността за смърт е 0 %.
                 </p>
               </>
             )
