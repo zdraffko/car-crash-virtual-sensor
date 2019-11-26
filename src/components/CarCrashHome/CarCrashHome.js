@@ -20,11 +20,11 @@ const CarCrashHome = ({ history, resetForm }) => (
       buttonType="button"
       onClick={() => {
         resetForm();
-        history.push("/car-crash-virtual-sensor");
+        history.push("/virtual-sensor");
       }}
     >Към виртуалния сензор
     </Button>
-    <Button buttonType="button" onClick={() => history.push("/car-crash-documentation")}>Към документацията</Button>
+    <Button buttonType="button" onClick={() => history.push("/documentation")}>Към документацията</Button>
   </>
 );
 

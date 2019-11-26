@@ -36,7 +36,7 @@ const useFormValidation = (initialFormState, validateForm) => {
     event.preventDefault();
     setIsSubmitting(true);
     setValidationErrors(validateForm(formValues));
-    history.push("/car-crash-results");
+    history.push("/results");
   }, [formValues, validateForm]);
 
   const handleFormReset = useCallback(() => {

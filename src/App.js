@@ -35,7 +35,7 @@ const App = () => {
       <div className="VirtualSensor">
         <Switch>
           <Route
-            path="/car-crash-home"
+            path="/home"
             render={(routProps) => (
               <CarCrashHome
                 {...routProps}
@@ -44,11 +44,11 @@ const App = () => {
             )}
           />
           <Route
-            path="/car-crash-virtual-sensor"
+            path="/virtual-sensor"
             render={(routProps) => <CarCrashForm {...formValidationObject} {...routProps} />}
           />
           <Route
-            path="/car-crash-results"
+            path="/results"
             render={(routProps) => (
               <CarCrashResults
                 {...formValidationObject.formValues}
@@ -57,8 +57,9 @@ const App = () => {
               />
             )}
           />
-          <Route path="/car-crash-documentation" component={CarCrashDocumentation} />
-          <Redirect exact path="/" to="/car-crash-home" />
+          <Route path="/documentation" component={CarCrashDocumentation} />
+          <Redirect exact path="/" to="/home" />
+          <Redirect exact path="/car-crash-virtual-sensor/" to="/home" />
           <Route render={() => <h1>Error 404</h1>} />
         </Switch>
       </div>

@@ -86,14 +86,14 @@ const CarCrashResults = ({
         buttonType="button"
         onClick={() => {
           resetForm();
-          history.push("/car-crash-virtual-sensor");
+          history.push("/virtual-sensor");
         }}
       >Ново изчисление
       </Button>
       <Button
         buttonType="button"
         onClick={() => {
-          history.push("/car-crash-virtual-sensor");
+          history.push("/virtual-sensor");
         }}
       >Промени изчислението
       </Button>
